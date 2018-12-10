@@ -61,7 +61,7 @@ var trans =[
 
 
 ];
-    if(message.content == prefix+"ترجمة"){
+    if(message.content == ".ترجمه"){
         if(UserBlocked.has(message.guild.id)) return message.channel.send("هناك جلسة .")
         UserBlocked.add(message.guild.id)
         var ask = trans[Math.floor(Math.random() * trans.length)];
