@@ -87,4 +87,39 @@ var trans =[
   }
 });
 
+
+
+
+
+client.on('message' , message => {
+    if (message.content === '+help') {
+               if (!message.member.hasPermission('MANAGE_MESSAGES')) return;
+             let embed = new Discord.RichEmbed()
+    
+          .setThumbnail(message.author.avatarURL)    
+          .addField("**۩ஜ▬▬▬▬▬▬▬▬▬✦أوامر بوت الألعاب✦▬▬▬▬▬▬▬▬▬ஜ۩**","** **")
+          .addField("**❖ .ترجمة**","**يعطيك كلمات لازم تترجمها**")
+          .addField("**❖ .كت تويت**","**لعبة كت تويت**")
+          .addField("**❖ .فكك**","**لعبة تفكيك جمل**")
+          .addField("**❖ .عواصم**","**لعبة عواصم**")
+          .addField("**❖ .صراحة**","**لعبة صراحة**")
+          .addField("**❖ .مريم**","**لعبة مريم**")
+          .addField("**❖ .سرعة<Number>**","**أسرع كاتب**")
+          .addField("**❖ .rps<Number>**","**لعبة حجرة ورقه مقص**")
+          .addField("**❖ .xo<Number>**","**لعبة اكس او**")
+          .addField("**۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩**","** **")
+        .setColor('RANDOM')
+      message.author.sendEmbed(embed);
+        }
+    });
+
+
+
+
+
+
+
+
+
+
 client.login(process.env.BOT_TOKEN);
