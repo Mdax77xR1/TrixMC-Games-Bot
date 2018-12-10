@@ -4,7 +4,7 @@ const UserBlocked = new Set();
 const fs = require("fs"); 
 const client = new Discord.Client();
 const jimp = require('jimp');   
-const prefix = "-"
+const prefix = "."
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
  client.user.setActivity("",{type: 'watching'})
@@ -44,7 +44,7 @@ client.user.setStatus("online")
  
 });
   client.on("message", async message => {
-var prefix = "-";
+var prefix = ".";
 var trans =[
     {q:"**ما معنى `Train` ?**",a:"قطار"},
     {q:"**ما معنى `Plane` ?**",a:"طائرة"},
