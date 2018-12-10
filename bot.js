@@ -1,9 +1,10 @@
 
 const Discord = require('discord.js');
+const UserBlocked = new Set();
 const fs = require("fs"); 
+const client = new Discord.Client();
 const jimp = require('jimp');   
 const prefix = "-"
-const client = new Discord.Client();
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
  client.user.setActivity("",{type: 'watching'})
