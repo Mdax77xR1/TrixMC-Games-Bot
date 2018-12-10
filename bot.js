@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const fs = require("fs"); 
 const jimp = require('jimp');   
-var prefix = "."
+const prefix = "."
 const client = new Discord.Client();
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -45,6 +45,7 @@ client.user.setStatus("online")
 });
 
 client.on("message", async message => {
+var prefix = "."
 var trans =[
     {q:"**ما معنى `Train` ?**",a:"قطار"},
     {q:"**ما معنى `Plane` ?**",a:"طائرة"},
