@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 const fs = require("fs"); 
 const jimp = require('jimp');   
-const prefix = "."
+const prefix = "$"
 const client = new Discord.Client();
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -61,7 +61,7 @@ var trans =[
 
 
 ];
-    if(message.content == ".ترجمه"){
+    if(message.content == "$Trgm"){
         if(UserBlocked.has(message.guild.id)) return message.channel.send("هناك جلسة .")
         UserBlocked.add(message.guild.id)
         var ask = trans[Math.floor(Math.random() * trans.length)];
