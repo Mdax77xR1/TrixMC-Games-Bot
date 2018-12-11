@@ -43,20 +43,24 @@ client.on('ready', () => {
 client.user.setStatus("online")
  
 });
-  client.on("message", async message => {
-var prefix = ".";
+client.on("message", async message => {
+var prefix = "-";
 var trans =[
     {q:"**ما معنى `Train` ?**",a:"قطار"},
     {q:"**ما معنى `Plane` ?**",a:"طائرة"},
     {q:"**ما معنى `Home` ?**",a:"منزل"},
     {q:"**ما معنى `Cook` ?**",a:"يطبخ"},
+    {q:"**ما معنى `Car` ?**",a:"سيارة"},
     {q:"**ما معنى `Ask` ?**",a:"سؤال"},
     {q:"**ما معنى `afraid` ?**",a:"خائف"},
     {q:"**ما معنى `Air` ?**",a:"هواء"},
     {q:"**ما معنى `Always` ?**",a:"دائما"},
-    {q:"**ما معنى `Never` ?**",a:"ابدا"},   
+    {q:"**ما معنى `Never` ?**",a:"ابدا"},
     {q:"**ما معنى `box` ?**",a:"صندوق"},
-    {q:"**ما معنى `Space",a:"فراغ
+    {q:"**ما معنى `Space` ?**",a:"فراغ"},
+
+
+
 ];
     if(message.content == prefix+"ترجمة"){
         if(UserBlocked.has(message.guild.id)) return message.channel.send("هناك جلسة .")
