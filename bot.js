@@ -90,13 +90,12 @@ var trans =[
 
 
 
-
 client.on('message' , message => {
-    if (message.content === '.help') {
-               if (!message.member.hasPermission('MANAGE_MESSAGES')) return;
-             let embed = new Discord.RichEmbed()
-    
-          .setThumbnail(message.author.avatarURL)    
+if (message.content === '.help') {
+           if (!message.member.hasPermission('MANAGE_MESSAGES')) return;
+         let embed = new Discord.RichEmbed()
+
+      .setThumbnail(message.author.avatarURL)    
           .addField("**۩ஜ▬▬▬▬▬▬▬▬▬✦أوامر بوت الألعاب✦▬▬▬▬▬▬▬▬▬ஜ۩**","** **")
           .addField("**❖ .ترجمة**","**يعطيك كلمات لازم تترجمها**")
           .addField("**❖ .كت تويت**","**لعبة كت تويت**")
@@ -108,10 +107,11 @@ client.on('message' , message => {
           .addField("**❖ .rps<Number>**","**لعبة حجرة ورقه مقص**")
           .addField("**❖ .xo<Number>**","**لعبة اكس او**")
           .addField("**۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩**","** **")
-        .setColor('RANDOM')
-      message.author.sendEmbed(embed);
-        }
-    });
+   
+    .setColor('#e9ab26')
+  message.author.sendEmbed(embed);
+    }
+});
 
 
 
