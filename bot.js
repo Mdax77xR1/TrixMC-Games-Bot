@@ -438,7 +438,7 @@ var aoasm =[
 client.on('message', message => {
 if (message.content.startsWith('.help')){
      let ra3d = new Discord.RichEmbed()
-  .setColor("#e9ab26")
+  .setColor("RANDOM")
   .setDescription("** ✔️تم إرسالة في الخاص **")
      
      
