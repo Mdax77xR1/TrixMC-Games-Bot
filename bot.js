@@ -118,12 +118,12 @@ if (message.content === '.help') {
           .addField("**❖ .xo**","**لعبة اكس او**")
           .addField("**۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩**","** **")
    
-    .setColor('#e9ab26')
+    .setColor('RANDOM')
   message.author.sendEmbed(embed);
     }
 });
 
- 
+
 client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
@@ -136,13 +136,12 @@ if (!points[message.author.id]) points[message.author.id] = {
     message.channel.send(`**Sorry, Please Wait ${pretty(r, {verbose:true})}...**`).then(m => m.delete(5000));
     return;
     }
-    if ( message.content == prefix+'سرعة
+    if ( message.content == prefix+'سرعة'){
        
         try{
 }catch(e){
  
 }
-
 
 
 
