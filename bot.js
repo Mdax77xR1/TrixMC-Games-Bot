@@ -8,17 +8,17 @@ const prefix = "."
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
  client.user.setActivity("",{type: 'watching'})
-  console.log('')
+  console.log('S.P.Z')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
   console.log(`[Start] ${new Date()}`);
   console.log('╚[═════════════════════════════════════════════════════════════════]╝')
-  console.log('')
+  console.log('S.')
   console.log('╔[════════════════════════════════════]╗');
   console.log(`Logged in as * [ " ${client.user.username} " ]`);
-  console.log('')
+  console.log('xR1')
   console.log('Informations :')
-  console.log('')
+  console.log('Mdax77x')
   console.log(`servers! [ " ${client.guilds.size} " ]`);
   console.log(`Users! [ " ${client.users.size} " ]`);
   console.log(`channels! [ " ${client.channels.size} " ]`);
@@ -50,7 +50,13 @@ var trans =[
     {q:"**ما معنى `Plane` ?**",a:"طائرة"},
     {q:"**ما معنى `Home` ?**",a:"منزل"},
     {q:"**ما معنى `Cook` ?**",a:"يطبخ"},
-    {q:"السؤال",a:"الجواب"},
+    {q:"**ما معنى `Ask` ?**",a:"سؤال"},
+    {q:"**ما معنى `afraid` ?**",a:"خائف"},
+    {q:"**ما معنى `Air` ?**",a:"هواء"},
+    {q:"**ما معنى `Always` ?**",a:"دائما"},
+    {q:"**ما معنى `Never` ?**",a:"ابدا"},   
+    {q:"**ما معنى `box` ?**",a:"صندوق"},
+    {q:"**ما معنى `Space",a:"فراغ
 ];
     if(message.content == prefix+"ترجمة"){
         if(UserBlocked.has(message.guild.id)) return message.channel.send("هناك جلسة .")
@@ -96,22 +102,42 @@ if (message.content === '.help') {
          let embed = new Discord.RichEmbed()
 
       .setThumbnail(message.author.avatarURL)    
-          .addField("**۩ஜ▬▬▬▬▬▬▬▬▬✦أوامر بوت الألعاب✦▬▬▬▬▬▬▬▬▬ஜ۩**","** **")
+          .addField("**۩ஜ▬▬▬▬✦أوامر بوت الألعاب✦▬▬▬▬ஜ۩**","** **")
           .addField("**❖ .ترجمة**","**يعطيك كلمات لازم تترجمها**")
           .addField("**❖ .كت تويت**","**لعبة كت تويت**")
           .addField("**❖ .فكك**","**لعبة تفكيك جمل**")
           .addField("**❖ .عواصم**","**لعبة عواصم**")
           .addField("**❖ .صراحة**","**لعبة صراحة**")
           .addField("**❖ .مريم**","**لعبة مريم**")
-          .addField("**❖ .سرعة<Number>**","**أسرع كاتب**")
-          .addField("**❖ .rps<Number>**","**لعبة حجرة ورقه مقص**")
-          .addField("**❖ .xo<Number>**","**لعبة اكس او**")
-          .addField("**۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩**","** **")
+          .addField("**❖ .سرعة**","**أسرع كاتب**")
+          .addField("**❖ .rps<**","**لعبة حجرة ورقه مقص**")
+          .addField("**❖ .xo**","**لعبة اكس او**")
+          .addField("**۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩**","** **")
    
     .setColor('#e9ab26')
   message.author.sendEmbed(embed);
     }
 });
+
+ 
+client.on('message', message => {
+if (!points[message.author.id]) points[message.author.id] = {
+    points: 0,
+  };
+  if(!message.guild) return;
+    let id = message.author.id,prefix="-";
+    if (spee[id] && (new Date).getTime() - spee[id] < 15*1000) {
+        let r = (new Date).getTime() - spee[id];
+        r = 15*1000 - r;
+    message.channel.send(`**Sorry, Please Wait ${pretty(r, {verbose:true})}...**`).then(m => m.delete(5000));
+    return;
+    }
+    if ( message.content == prefix+'سرعة
+       
+        try{
+}catch(e){
+ 
+}
 
 
 
