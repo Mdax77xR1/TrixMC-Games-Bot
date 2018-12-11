@@ -1,5 +1,6 @@
 
 const Discord = require('discord.js');
+ const points = JSON.parse(fs.readFileSync('./points.json' , 'utf8'));
 const UserBlocked = new Set();
 const fs = require("fs"); 
 const client = new Discord.Client();
@@ -452,7 +453,6 @@ if (message.content.startsWith('.help')){
 
 
 
- const points = JSON.parse(fs.readFileSync('./points.json' , 'utf8'));
 client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
