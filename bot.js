@@ -293,32 +293,30 @@ reaction3.on("collect", r => {
 
 
 
-
-client.on('message' , message => {
-  var prefix = ".";
+client.on('message' , message => {;
   if(message.author.bot) return;
- 
-  if(message.content.startsWith(prefix + "xo")) {
+
+    if(message.content.startsWith('.xo')) {
  let array_of_mentions = message.mentions.users.array();
-  let symbols = [':o:', ':heavy_multiplication_x:']
+  let symbols = [':o:', ':heavy_multiplication_x:'] 
   var grid_message;
- 
+
   if (array_of_mentions.length == 1 || array_of_mentions.length == 2) {
     let random1 = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
-    let random2 = Math.abs(random1 - 1);
+    let random2 = Math.abs(random1 - 1); 
     if (array_of_mentions.length == 1) {
       random1 = 0;
       random2 = 0;
     }
-    var player1_id = message.author.id
+    let player1_id = array_of_mentions[random1].id;
     let player2_id = array_of_mentions[random2].id;
     var turn_id = player1_id;
     var symbol = symbols[0];
-    let initial_message = `Game match between <@${player1_id}> and <@${player2_id}>!`;
+    let initial_message = `مباراة بين <@${player1_id}> و <@${player2_id}>!`;
     if (player1_id == player2_id) {
-      initial_message += '\n_( ألعب مع نفسك)_'
+      initial_message += '\n_(من الخاسر, انت تلعب هذا الدور مع نفسك :joy:)_'
     }
-    message.channel.send(`Xo ${initial_message}`)
+    message.channel.send(`xo! ${initial_message}`)
     .then(console.log("Successful tictactoe introduction"))
     .catch(console.error);
     message.channel.send(':one::two::three:' + '\n' +
@@ -327,9 +325,9 @@ client.on('message' , message => {
     .then((new_message) => {
       grid_message = new_message;
     })
-    .then(console.log("Successful tictactoe game initialization"))
+    .then(console.log("Successful xo game initialization"))
     .catch(console.error);
-    message.channel.send('يجب الانتضار حيث ما يتم الموافقه')
+    message.channel.send('يتم تحميل... انتظر الريئاكشن :ok:')
     .then(async (new_message) => {
       await new_message.react('1⃣');
       await new_message.react('2⃣');
@@ -341,18 +339,18 @@ client.on('message' , message => {
       await new_message.react('8⃣');
       await new_message.react('9⃣');
       await new_message.react('🆗');
-      await new_message.edit(`It\'s <@${turn_id}>\'s turn! Your symbol is ${symbol}`)
+      await new_message.edit(`انه دور <@${turn_id}> علامتك هي${symbol}`)
       .then((new_new_message) => {
-        require('./xo.js')(client, message, new_new_message, player1_id, player2_id, turn_id, symbol, symbols, grid_message);
+        require('./SC.js')(client, message, new_new_message, player1_id, player2_id, turn_id, symbol, symbols, grid_message);
       })
-      .then(console.log("Successful tictactoe listener initialization"))
+      .then(console.log("Successful xo listener initialization"))
       .catch(console.error);
     })
-    .then(console.log("Successful tictactoe react initialization"))
+    .then(console.log("Successful xo react initialization"))
     .catch(console.error);
   }
   else {
-    message.reply(`منشن مع من تريد ألعب`)
+    message.reply(`_مهلا مهلا_ :anger: \`(استعمل هذا: ${prefix}xo @player1 @player2)\``)
     .then(console.log("Successful error reply"))
     .catch(console.error);
   }
