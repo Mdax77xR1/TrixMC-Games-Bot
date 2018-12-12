@@ -752,7 +752,7 @@ if (!points[message.author.id]) points[message.author.id] = {
         let r = (new Date).getTime() - spee[id];
         r = 15*1000 - r;
     }
-    if ( message.content == prefix+'اسرع كتابة'){
+    if ( message.content == prefix+'سرعة'){
        
         try{
 }catch(e){
@@ -782,7 +782,7 @@ msg.channel.send(embed).then(() => {
                   const sh = new Discord.RichEmbed()
   .setColor("RANDOM")
 .setDescription('**:tada: , جيد , لقد حصلت على نقطة**')
-.addField('.mypoints اكتب', 'لرؤية نقاطك' , true)
+.addField('.نقاطي اكتب', 'لرؤية نقاطك' , true)
 .setFooter(message.author.username, message.author.avatarURL)
 message.channel.sendEmbed(sh);
             let won = collected.first().author;
