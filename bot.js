@@ -378,7 +378,7 @@ if (message.content.startsWith('.help')){
   .setDescription("** ✔️تم إرسالة في الخاص **")
      
      
-  message.channel.selet points = JSON.parse(fs.readFileSync('./Data/fkkPTS.json', 'utf8'));
+  message.channel.selet points = JSON.parse(fs.readFileSync('.fkkPTS.json', 'utf8'));
 const prefix = ".";//البريفكس
 
 client.on('message', message => {
