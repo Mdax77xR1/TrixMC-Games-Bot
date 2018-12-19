@@ -378,7 +378,7 @@ if (message.content.startsWith('.help')){
   .setDescription("** ✔️تم إرسالة في الخاص **")
      
      
-  message.channel.selet points = JSON.parse(fs.readFileSync('.fkkPTS.json', 'utf8'));
+  message.channel.selet points = JSON.parse(fs.readFileSync('./fkkPTS.json', 'utf8'));
 const prefix = ".";//البريفكس
 
 client.on('message', message => {
@@ -388,7 +388,7 @@ if (!points[message.author.id]) points[message.author.id] = {
 if (message.content.startsWith(prefix + 'فكك')) {
 	if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
 
-const type = require('.fkk.json');
+const type = require('./fkk.json');
 const item = type[Math.floor(Math.random() * type.length)];
 const filter = response => {
     return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
@@ -422,7 +422,7 @@ if (message.content.startsWith(prefix + 'نقاطي')) {
 	.setDescription(`نقاطك: \`${userData.points}\``)
 	message.channel.sendEmbed(embed)
   }
-  fs.writeFile(".fkkPTS.json", JSON.stringify(points), (err) => {
+  fs.writeFile("./fkkPTS.json", JSON.stringify(points), (err) => {
     if (err) console.error(err)
   })
 });
