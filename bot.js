@@ -430,4 +430,137 @@ if (message.content.startsWith(prefix + 'نقاطي')) {
 });
 
 
+
+
+
+ client.on("message", async message => {
+var prefix = "-";
+var aoasm =[
+    {q:"ما عاصمة **المغرب**",a:"الرباط"},
+    {q:"ما عاصمة **افغانستان**",a:"كبل"},
+    {q:"ما عاصمة **الارجنتين**",a:"بوينس ايرس"},
+    {q:"ما عاصمة ** مصر**",a:"القاهرة"},
+    {q:"ما عاصمة ** استراليا**",a:"كانبرا"},
+    {q:"ما عاصمة **النمسا**",a:"فيينا"},
+    {q:"ما عاصمة **البحرين**",a:"المنامة"},
+    {q:"ما عاصمة ** بنجلاديش**",a:"دكـا"},
+    {q:"ما عاصمة ** البرازيل**",a:"برازيليا"},
+    {q:"ما عاصمة ** كندا**",a:"اوتاوا"},
+    {q:"ما عاصمة **الصين **",a:"بكين"},
+    {q:"ما عاصمة ** قبرص**",a:" "},
+    {q:"ما عاصمة **الدنمارك **",a:"كوبنهاجن"},
+    {q:"ما عاصمة **قطر  **",a:"الدوحة"},
+    {q:"ما عاصمة **السعودية  **",a:"الرياض"},
+    {q:"ما عاصمة **سوريا  **",a:"دمشق"},
+    {q:"ما عاصمة **تركيا  **",a:"انقرة"},
+    {q:"ما عاصمة **العراق  **",a:"بغداد"},
+    {q:"ما عاصمة **البنان  **",a:"بيروت"},
+    {q:"ما عاصمة **فلسطين  **",a:"القدس"},
+    {q:"ما عاصمة **امريكا  **",a:"واشنطن"},
+    {q:"ما عاصمة **الاردن  **",a:"عمان"},    
+    {q:"ما عاصمة **السودان  **",a:"خرطوم"},
+    {q:"ما عاصمة **المانيا  **",a:"برلين"},
+    {q:"ما عاصمة **كندا  **",a:"اوتاوا"},
+    {q:"ما عاصمة **البرازيل  **",a:"برازيليا"},
+   ];
+    if(message.content == prefix+"عواصم"){
+        if(UserBlocked.has(message.guild.id)) return message.channel.send("هناك جلسة .")
+        UserBlocked.add(message.guild.id)
+        var ask = aoasm[Math.floor(Math.random() * aoasm.length)];
+        let embed = new Discord.RichEmbed()
+        .setTitle('سؤال عواصم')
+        .setAuthor(message.author.username, message.author.avatarURL)
+        .setColor("RANDOM")
+        .setDescription(ask.q);
+        message.channel.sendEmbed(embed).then(msg=> msg.delete(20000))
+        const msgs = await message.channel.awaitMessages(msg => msg.author.id !== client.user.id ,{maxMatches:1,time:10000});
+            UserBlocked.delete(message.guild.id)
+        msgs.forEach(result => {
+           if(result.author.id == client.user.id) return;
+           if(result.content == "عاصمة") return
+           if(result.content == ask.a){
+             let embeds = new Discord.RichEmbed()
+             .setTitle(':white_check_mark: اجابة صحيحة')
+             .setAuthor(message.author.username, message.author.avatarURL)
+             .setColor("RANDOM")
+             .setDescription(`**${result.author.username}** الإجابة صحيحة`);
+                message.channel.sendEmbed(embeds);                return;
+           } else {
+
+                                  var embedx = new Discord.RichEmbed()
+                .setTitle(':x:خطاء')
+                .setAuthor(message.author.username, message.author.avatarURL)
+                .setColor("RANDOM")
+                .setDescription(`**${result.author.username}** الإجابة خاطئة`);
+                message.channel.sendEmbed(embedx);
+           }
+     });
+  }
+});
+
+
+const x5bz4 = [
+   '*** انا اسمي مريم ***',
+   '*** مرحباَ ماهو اسمك ؟ ***',
+   `*** اهلا بك ! انا تائهه في هذا المكان  ***`,
+   '*** هل تود مساعدتي ؟ ***',
+   '*** لماذا هل انت قاسي القلب ؟ ***',
+   '*** انني اشفق عليك عليك يجب ان تطهر روحك وتحب الخير للجميع ***',
+   '*** ابتعد عني قليل انني متعبة ***',
+   '*** هل انت نادم على ماقلت ؟ ***',
+   '*** ابتعد عني قليل انني متعبة ***',
+   '*** هل انت نادم على ماقلت ؟ ***',
+   '*** هل تود مساعدتي ؟ ***',
+   '*** واو اشكرك انك شخصاَ رائع ! ***',
+   '*** ابحث معي عن منزلي لقد كان قريباَ من هنا ***',
+   '*** ولاكن عندما حل الليل لم اعد ارى اي شيء ***',
+   '*** مذا تظن اين يوجد ؟ يمين او يسار ***',
+   '*** هيا اذاَ ***',
+   '*** اود ان اسئلك سؤال ونحن في الطريق ***',
+   '*** هل تراني فتاة لطيفة ام مخيفة ***',
+   '*** اشكرك !  ***',
+   '*** لقد وصلنا الى المنزل شكراَ جزيلَ انتطرني ثواني وسوف اعود ***',
+   '*** هل انت جاهز ؟ ***',
+   '*** لقد اخبرت والدي عنك وهم متحمسين لرؤيتك ***',
+   '*** هل تود ان تراهم الان ***',
+   '*** انا لست الحوت الازرق كما يدعون ***',
+   '*** انا لست كاذبة صدقني***',
+   '*** لماذا ارى في عينيك الخوف ؟ ***',
+   '*** انا مجرد فتاة لطيفة تحب اللعب مع الجميع ***',
+   '*** اعرف كل شيء يحدث اسمع ذالك بالراديو ***',
+   '*** سمعت ان البشر يقتلون من اجل المال فقط ***',
+   '*** لماذا لم تدخل الغرفة ؟ ***',
+   '*** ههههههههههههههههههه انت الان مسجون في هذه الغرفة ***',
+   '*** لن تخرج حتى اعود لك بعد قليل ***',
+   '*** المفتاح معك ! اكتب .مريم  ***',
+   '*** مفتاح احمر , هل حصلت عليه ؟ ***',
+   '*** ان لم تحصل عليه , اكتب .مريم مرة اخرى ***',
+   '*** مفتاح اسود . هل حصلت عليه ؟ ***',
+   '*** اين تريد ان تختبئ بسرعة قبل ان تعود ***',
+   '*** لقد عادت من جديد الى المنزل ***',
+   '*** لا تصدر اي صوت ! ***',
+   '*** مريم : لقد عدت ***',
+   '*** مريم : يا ايها المخادع اين انت ***',
+   '*** مريم : اعلم انك هنا في المنزل ***',
+   '*** مريم : ماذا تريد ان تسمع ***',
+   '*** مريم : اضغط على الرابط اهداء مني لك | https://www.youtube.com/watch?v=hvSiuQccmtg ***',
+   '*** احد ما خرج من المنزل ***',
+   '*** انتظر الجزء الثاني عندما يوصل البوت 100 سيرفر , ساعدنا في نشر البوت وادخل هذا السيرفر https://discord.gg/dqVFqrN ***'
+]
+ client.on('message', message => {
+ if (message.content.startsWith(prefix + "مريم")) {
+  var mariam= new Discord.RichEmbed()
+  .setTitle("لعبة مريم ..")
+  .setColor('RANDOM')
+  .setDescription(`${x5bz4[Math.floor(Math.random() * x5bz4.length)]}`)
+  .setImage("https://www.npa-ar.com/wp-content/uploads/2017/08/%D9%84%D8%B9%D8%A8%D8%A9-%D9%85%D8%B1%D9%8A%D9%85-300x200.jpg")
+   message.channel.sendEmbed(mariam);
+   message.react("??")
+  }
+});
+
+
+
+
+
 client.login(process.env.BOT_TOKEN);
