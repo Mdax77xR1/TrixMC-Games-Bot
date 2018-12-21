@@ -370,13 +370,17 @@ client.on('message' , message => {;
     
 
 
-
 client.on('message', message => {
 if (message.content.startsWith('.help')){
      let ra3d = new Discord.RichEmbed()
-  .setColor("RANDOM")
-  .setDescription("** ✔️تم إرسالة في الخاص **")
+  .setColor("#e9ab26")
+  .setDescription("تم إرساله في الخاص")
      
+     
+  message.channel.sendEmbed(ra3d);
+    }
+});
+
      
 let points = JSON.parse(fs.readFileSync('./fkkPTS.json', 'utf8')); 
 client.on('message', message => {
@@ -424,16 +428,6 @@ if (message.content.startsWith(prefix + 'نقاطي')) {
     if (err) console.error(err)
   })
 });
-
-
-
-
-
-
-
-
-
-
 
 
 client.login(process.env.BOT_TOKEN);
