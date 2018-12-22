@@ -976,6 +976,7 @@ var aoasm =[
            if(result.content == ask.a){
              let embeds = new Discord.RichEmbed()
          
+       
 msg.channel.send(embed).then(() => {
         message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
         .then((collected) => {
@@ -987,11 +988,8 @@ msg.channel.send(embed).then(() => {
 message.channel.sendEmbed(sh);
             let won = collected.first().author;
             points[won.id].points++;
-             .setTitle(':white_check_mark: اجابة صحيحة')
-             .setAuthor(message.author.username, message.author.avatarURL)
-             .setColor("RANDOM")
-             .setDescription(`**${result.author.username}** الإجابة صحيحة`);
-                message.channel.sendEmbed(embeds);                return;
+          })
+               message.channel.sendEmbed(embeds);                return;
            } else {
 
                                   var embedx = new Discord.RichEmbed()
