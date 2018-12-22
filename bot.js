@@ -972,7 +972,7 @@ var aoasm =[
 
 
 
-var speed = [
+var fkkg = [
        {
    
         "type": "القسطنطينيه",
