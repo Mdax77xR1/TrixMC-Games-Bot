@@ -972,7 +972,7 @@ var aoasm =[
 
 
 
-const speed = [
+var speed = [
        {
    
         "type": "القسطنطينيه",
