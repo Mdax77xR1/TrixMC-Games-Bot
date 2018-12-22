@@ -4,6 +4,7 @@ const UserBlocked = new Set();
 const fs = require("fs"); 
 const client = new Discord.Client();
 const jimp = require('jimp');   
+const points = {};
 const prefix = "."
  const pretty = require('pretty-ms') 
 ,ti={}  
