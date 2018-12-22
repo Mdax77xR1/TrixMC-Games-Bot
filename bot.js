@@ -959,7 +959,7 @@ var aoasm =[
     {q:"ما عاصمة **البرازيل  **",a:"برازيليا"},
    ];
     if(message.content == prefix+"عواصم"){
-        if(UserBlocked.has(message.guild.id)) return message.channel.send("هناك جلسة .")
+       if(UserBlocked.has(message.guild.id)) return message.channel.send("هناك جلسة .")
         UserBlocked.add(message.guild.id)
         var ask = aoasm[Math.floor(Math.random() * aoasm.length)];
         let embed = new Discord.RichEmbed()
@@ -970,7 +970,7 @@ var aoasm =[
         message.channel.sendEmbed(embed).then(msg=> msg.delete(20000))
         const msgs = await message.channel.awaitMessages(msg => msg.author.id !== client.user.id ,{maxMatches:1,time:10000});
             UserBlocked.delete(message.guild.id)
-       msgs.forEach(result => {
+        msgs.forEach(result => {
            if(result.author.id == client.user.id) return;
            if(result.content == "عاصمة") return
            if(result.content == ask.a){
@@ -979,13 +979,11 @@ var aoasm =[
              .setAuthor(message.author.username, message.author.avatarURL)
              .setColor("RANDOM")
              .setDescription(`**${result.author.username}** الإجابة صحيحة`);
-             let won = collected.first().author;
-              points[won.id].points++;
                 message.channel.sendEmbed(embeds);                return;
            } else {
 
                                   var embedx = new Discord.RichEmbed()
-                .setTitle(':x:خطاء')
+                .setTitle('خطأ:x:')
                 .setAuthor(message.author.username, message.author.avatarURL)
                 .setColor("RANDOM")
                 .setDescription(`**${result.author.username}** الإجابة خاطئة`);
@@ -994,7 +992,6 @@ var aoasm =[
      });
   }
 });
-
 
 
 
