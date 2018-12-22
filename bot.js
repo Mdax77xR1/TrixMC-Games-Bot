@@ -974,12 +974,18 @@ var aoasm =[
            if(result.author.id == client.user.id) return;
            if(result.content == "عاصمة") return
            if(result.content == ask.a){
-             let embeds = new Discord.RichEmbed()
-             .setTitle(':white_check_mark: اجابة صحيحة')
-             .setAuthor(message.author.username, message.author.avatarURL)
-             .setColor("RANDOM")
-             .setDescription(`**${result.author.username}** الإجابة صحيحة`);
-                message.channel.sendEmbed(embeds);                return;
+ msg.channel.send(embed).then(() => {
+        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+        .then((collected) => {
+                  const sh = new Discord.RichEmbed()
+  .setColor("RANDOM")
+.setDescription('**:tada: , جيد , لقد حصلت على نقطة**')
+.addField('.اكتب نقاطي', 'لرؤية نقاطك' , true)
+.setFooter(message.author.username, message.author.avatarURL)
+message.channel.sendEmbed(sh);
+            let won = collected.first().author;
+            points[won.id].points++;
+          })               return;
            } else {
 
                                   var embedx = new Discord.RichEmbed()
