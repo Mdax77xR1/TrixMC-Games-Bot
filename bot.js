@@ -1076,7 +1076,6 @@ message.channel.send('**:loudspeaker: , لقد بدأت اللعبة الان !*
  const embed = new Discord.RichEmbed()
  .setColor("RANDOM")
      .setAuthor(`:timer: , لديك »15« ثانية فقط لتفكيك هذه الكلمة`)
-          .setImage(`${item.type}`)
  .setFooter(`${message.author.tag}`, message.author.avatarURL)
  
  
