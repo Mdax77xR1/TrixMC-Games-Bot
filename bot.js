@@ -868,7 +868,7 @@ if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
   };
   if(!message.guild) return;
-    let id = message.author.id,prefix="#";
+    let id = message.author.id,prefix=".";
     if (spee[id] && (new Date).getTime() - spee[id] < 15*1000) {
         let r = (new Date).getTime() - spee[id];
         r = 15*1000 - r;
@@ -903,7 +903,7 @@ msg.channel.send(embed).then(() => {
                   const sh = new Discord.RichEmbed()
   .setColor("RANDOM")
 .setDescription('**:tada: , جيد , لقد حصلت على نقطة**')
-.addField('#mypoints اكتب', 'لرؤية نقاطك' , true)
+.addField('.نقاطي اكتب', 'لرؤية نقاطك' , true)
 .setFooter(message.author.username, message.author.avatarURL)
 message.channel.sendEmbed(sh);
             let won = collected.first().author;
@@ -929,7 +929,7 @@ message.channel.sendEmbed(sh);
 
 
    client.on("message", async message => {
-var prefix = "-";
+var prefix = ".";
 var aoasm =[
     {q:"ما عاصمة **المغرب**",a:"الرباط"},
     {q:"ما عاصمة **افغانستان**",a:"كبل"},
