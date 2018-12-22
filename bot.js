@@ -959,7 +959,7 @@ var aoasm =[
 
 
 
-var fkkg = [
+var fkk = [
        {
    
         "type": "القسطنطينيه",
@@ -1096,7 +1096,7 @@ message.channel.sendEmbed(sh);
           .catch(collected => {
             message.channel.send(`**:timer: , انتهئ الوقت , ولم يقم احد بتفكيك الكلمة**`);
           })
-          fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+          fs.writeFile("./points1.json", JSON.stringify(points), (err) => {
     if (err) console.error(err)
           })
         })
