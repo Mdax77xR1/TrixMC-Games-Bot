@@ -903,7 +903,7 @@ msg.channel.send(embed).then(() => {
                   const sh = new Discord.RichEmbed()
   .setColor("RANDOM")
 .setDescription('**:tada: , جيد , لقد حصلت على نقطة**')
-.addField('.نقاطي اكتب', 'لرؤية نقاطك' , true)
+.addField('.اكتب نقاطي', 'لرؤية نقاطك' , true)
 .setFooter(message.author.username, message.author.avatarURL)
 message.channel.sendEmbed(sh);
             let won = collected.first().author;
@@ -975,6 +975,18 @@ var aoasm =[
            if(result.content == "عاصمة") return
            if(result.content == ask.a){
              let embeds = new Discord.RichEmbed()
+         
+msg.channel.send(embed).then(() => {
+        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+        .then((collected) => {
+                  const sh = new Discord.RichEmbed()
+  .setColor("RANDOM")
+.setDescription('**:tada: , جيد , لقد حصلت على نقطة**')
+.addField('.اكتب نقاطي', 'لرؤية نقاطك' , true)
+.setFooter(message.author.username, message.author.avatarURL)
+message.channel.sendEmbed(sh);
+            let won = collected.first().author;
+            points[won.id].points++;
              .setTitle(':white_check_mark: اجابة صحيحة')
              .setAuthor(message.author.username, message.author.avatarURL)
              .setColor("RANDOM")
