@@ -1001,4 +1001,165 @@ var aoasm =[
 
 
 
+
+
+
+const speed = [
+       {
+   
+        "type": "القسطنطينيه",
+        "answers": ["ا ل ق س ط ن ط ي ن ي ه"]
+    },
+    {
+            "type": "قدرنامنجاكي",
+        "answers": ["ق د ر ن ا م ن ج ا ك ي"]
+    },
+    {
+            "type": "تمنراست",
+        "answers": ["ت م ن ر ا س ت"]
+    },
+    {
+            "type": "الاسكندرية",
+        "answers": ["ا ل ا س ك ن د ر ي ة"]
+    },
+    {
+            "type": "دبلوماسي",
+        "answers": ["د ب ل و م ا س ي"]
+    },
+    {
+            "type": "بليلة بلبلوكي",
+        "answers": ["ب ل ي ل ة ب ل ب ل و ك ي"]
+    },
+    {
+            "type": "العالميه صعبه قويه",
+        "answers": ["ا ل ع ا ل م ي ه ص ع ب ه ق و ي ه"]
+    },
+    {
+ 
+            "type": "قميص نفيسه نشف",
+        "answers": ["ق م ي ص ن ف ي س ه ن ش ف"]
+    },
+    {
+            "type": "حوش خميس خوش حوش",
+        "answers": ["ح و ش خ م ي س خ و ش ح و ش"]
+    },
+    {
+            "type": "كم كلمه في كم",
+        "answers": ["ك م ك ل م ه ف ي ك م"]
+    },
+    {
+            "type": "قعقاع فوق قعقاع",
+        "answers": ["ق ع ق ا ع ف و ق ق ع ق ا ع"]
+    },
+    {
+            "type": "جو جدة زي جو جيزان",
+        "answers": ["ج و ج د ة ز ي ج و ج ي ز ا ن"]
+    },
+    {
+            "type": "فراش فراس مفروش",
+        "answers": ["ف ر ا ش ف ر ا س م ف ر و ش"]
+    },
+    {
+            "type": "لقمه و جغمه",
+        "answers": ["ل ق م ه و ج غ م ه"]
+    },
+    {
+            "type": "صفحة سبعة صعبة",
+        "answers": ["ص ف ح ة س ب ع ة ص ع ب ة"]
+    },
+    {
+            "type": "لوري بلا بوري",
+        "answers": ["ل و ر ي ب ل ا ب و ر ي"]
+    },
+    {
+            "type": "شعبان شبعان",
+        "answers": ["ش ع ب ا ن ش ب ع ا ن"]
+    },
+    {
+            "type": "شرطي أكل طرشي",
+        "answers": ["ش ر ط ي أ ك ل ط ر ش ي"]
+    },
+    {
+            "type": "الشاعر في الشارع",
+        "answers": ["ا ل ش ا ع ر ف ي ا ل ش ا ر ع"]
+    },
+    {
+            "type": "خيط حرير على حيط خليل",
+        "answers": ["خ ي ط ح ر ي ر ع ل ى ح ي ط خ ل ي ل"]
+    },
+    {
+                "type": "يالله ياقلبي تعبنى",
+        "answers": ["ي ا ل ل ه ي ا ق ل ب ي ت ع ب ن ي"]
+    },
+];
+client.on('message', message => {
+if (!points[message.author.id]) points[message.author.id] = {
+    points: 0,
+  };
+  if(!message.guild) return;
+    let id = message.author.id,prefix=".";
+    if (spee[id] && (new Date).getTime() - spee[id] < 15*1000) {
+        let r = (new Date).getTime() - spee[id];
+        r = 15*1000 - r;
+    }
+    if ( message.content == prefix+'فكك'){
+       
+        try{
+}catch(e){
+ 
+}
+ 
+    if(!message.channel.guild) return message.reply('**:no_entry: , هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
+ 
+ 
+const item = speed[Math.floor(Math.random() * speed.length)];
+const filter = response => {  
+    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+};
+message.channel.send('**:loudspeaker: , لقد بدأت اللعبة الان !**').then(msg => {
+ 
+ const embed = new Discord.RichEmbed()
+ .setColor("RANDOM")
+     .setAuthor(`:timer: , لديك »15« ثانية فقط لتفكيك هذه الكلمة`)
+          .setImage(`${item.type}`)
+ .setFooter(`${message.author.tag}`, message.author.avatarURL)
+ 
+ 
+         
+msg.channel.send(embed).then(() => {
+        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+        .then((collected) => {
+                  const sh = new Discord.RichEmbed()
+  .setColor("RANDOM")
+.setDescription('**:tada: , جيد , لقد حصلت على نقطة**')
+.addField('.اكتب نقاطي', 'لرؤية نقاطك' , true)
+.setFooter(message.author.username, message.author.avatarURL)
+message.channel.sendEmbed(sh);
+            let won = collected.first().author;
+            points[won.id].points++;
+          })
+          .catch(collected => {
+            message.channel.send(`**:timer: , انتهئ الوقت , ولم يقم احد بتفكيك الكلمة**`);
+          })
+          fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+    if (err) console.error(err)
+          })
+        })
+    })
+    spee[id] = (new Date).getTime()
+}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 client.login(process.env.BOT_TOKEN);
