@@ -970,30 +970,22 @@ var aoasm =[
         message.channel.sendEmbed(embed).then(msg=> msg.delete(20000))
         const msgs = await message.channel.awaitMessages(msg => msg.author.id !== client.user.id ,{maxMatches:1,time:10000});
             UserBlocked.delete(message.guild.id)
-        msgs.forEach(result => {
+       msgs.forEach(result => {
            if(result.author.id == client.user.id) return;
            if(result.content == "عاصمة") return
            if(result.content == ask.a){
              let embeds = new Discord.RichEmbed()
-         
-       
-msg.channel.send(embed).then(() => {
-        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
-        .then((collected) => {
-                  const sh = new Discord.RichEmbed()
-  .setColor("RANDOM")
-.setDescription('**:tada: , جيد , لقد حصلت على نقطة**')
-.addField('.اكتب نقاطي', 'لرؤية نقاطك' , true)
-.setFooter(message.author.username, message.author.avatarURL)
-message.channel.sendEmbed(sh);
-            let won = collected.first().author;
-            points[won.id].points++;
-          })
-               message.channel.sendEmbed(embeds);                return;
+             .setTitle(':white_check_mark: اجابة صحيحة')
+             .setAuthor(message.author.username, message.author.avatarURL)
+             .setColor("RANDOM")
+             .setDescription(`**${result.author.username}** الإجابة صحيحة`);
+             let won = collected.first().author;
+              points[won.id].points++;
+                message.channel.sendEmbed(embeds);                return;
            } else {
 
                                   var embedx = new Discord.RichEmbed()
-                .setTitle(':x:خطأ')
+                .setTitle(':x:خطاء')
                 .setAuthor(message.author.username, message.author.avatarURL)
                 .setColor("RANDOM")
                 .setDescription(`**${result.author.username}** الإجابة خاطئة`);
@@ -1002,7 +994,6 @@ message.channel.sendEmbed(sh);
      });
   }
 });
-
 
 
 
