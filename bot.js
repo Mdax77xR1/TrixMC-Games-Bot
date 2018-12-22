@@ -985,8 +985,7 @@ var aoasm =[
 message.channel.sendEmbed(sh);
             let won = collected.first().author;
             points[won.id].points++;
-          })               return;
-           } else {
+          })               
 
                                   var embedx = new Discord.RichEmbed()
                 .setTitle('خطأ:x:')
