@@ -955,7 +955,6 @@ var aoasm =[
 
 
 
-
 client.on("message", async message => {
 var prefix = ".";
 var trans =[
@@ -1008,33 +1007,6 @@ var trans =[
      });
   }
 });
-
-
-msg.channel.send(embed).then(() => {
-        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
-        .then((collected) => {
-                  const sh = new Discord.RichEmbed()
-  .setColor("RANDOM")
-.setDescription('**:tada: , جيد , لقد حصلت على نقطة**')
-.addField('.اكتب نقاطي', 'لرؤية نقاطك' , true)
-.setFooter(message.author.username, message.author.avatarURL)
-message.channel.sendEmbed(sh);
-            let won = collected.first().author;
-            points[won.id].points++;
-          })
-          .catch(collected => {
-            message.channel.send(`**:timer: , انتهئ الوقت , ولم يقم احد بكتابة الكلمة**`);
-          })
-          fs.writeFile("./points.json", JSON.stringify(points), (err) => {
-    if (err) console.error(err)
-          })
-        })
-    })
-    spee[id] = (new Date).getTime()
-}
-});
-
-
 
 
 
