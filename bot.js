@@ -999,7 +999,7 @@ var trans =[
            } else {
  
                                   var embedx = new Discord.RichEmbed()
-                .setTitle(':x:خطاء')
+                .setTitle(':x:خطأ')
                 .setAuthor(message.author.username, message.author.avatarURL)
                 .setColor("RANDOM")
                 .setDescription(`**${result.author.username}** الإجابة خاطئة`);
@@ -1010,20 +1010,31 @@ var trans =[
 });
 
 
-client.on('message', message => {
-if (message.content.startsWith(prefix + 'نقاطي')) {
-    if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
-    let userData = points[message.author.id];
-    let embed = new Discord.RichEmbed()
-    .setAuthor(`${message.author.tag}`, message.author.avatarURL)
-    .setColor('#000000')
-    .setDescription(`نقاطك: \`${userData.points}\``)
-    message.channel.sendEmbed(embed)
-  }
-  fs.writeFile("./fkkPTS.json", JSON.stringify(points), (err) => {
+msg.channel.send(embed).then(() => {
+        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+        .then((collected) => {
+                  const sh = new Discord.RichEmbed()
+  .setColor("RANDOM")
+.setDescription('**:tada: , جيد , لقد حصلت على نقطة**')
+.addField('.اكتب نقاطي', 'لرؤية نقاطك' , true)
+.setFooter(message.author.username, message.author.avatarURL)
+message.channel.sendEmbed(sh);
+            let won = collected.first().author;
+            points[won.id].points++;
+          })
+          .catch(collected => {
+            message.channel.send(`**:timer: , انتهئ الوقت , ولم يقم احد بكتابة الكلمة**`);
+          })
+          fs.writeFile("./points.json", JSON.stringify(points), (err) => {
     if (err) console.error(err)
-  })
+          })
+        })
+    })
+    spee[id] = (new Date).getTime()
+}
 });
+
+
 
 
 
