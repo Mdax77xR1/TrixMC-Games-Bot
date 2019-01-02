@@ -991,6 +991,11 @@ var trans =[
         UserBlocked.add(message.guild.id)
         var ask = trans[Math.floor(Math.random() * trans.length)];
         let embed = new Discord.RichEmbed()
+message.channel.sendEmbed(sh);
+            let won = collected.first().author;
+            points[won.id].points++;
+          fs.writeFile("./points.json", JSON.stringify(points), (err) => {
+    if (err) console.error(err)
         .setTitle('فكك الكلمة بسرعة')
         .setAuthor(message.author.username, message.author.avatarURL)
         .setColor("RANDOM")
@@ -1007,11 +1012,6 @@ var trans =[
              .setAuthor(message.author.username, message.author.avatarURL)
              .setColor("RANDOM")
              .setDescription(`**${result.author.username}** الإجابة صحيحة`);
-message.channel.sendEmbed(sh);
-            let won = collected.first().author;
-            points[won.id].points++;
-          fs.writeFile("./points.json", JSON.stringify(points), (err) => {
-    if (err) console.error(err)
                 message.channel.sendEmbed(embeds);                return;
            } else {
  
