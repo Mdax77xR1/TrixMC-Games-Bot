@@ -991,7 +991,7 @@ var trans =[
         UserBlocked.add(message.guild.id)
         var ask = trans[Math.floor(Math.random() * trans.length)];
         let embed = new Discord.RichEmbed()
-        .setTitle('فكك الكلمة بسرعة')
+        .setTitle('فكك')
         .setAuthor(message.author.username, message.author.avatarURL)
         .setColor("RANDOM")
         .setDescription(ask.q);
@@ -1002,26 +1002,25 @@ var trans =[
            if(result.author.id == client.user.id) return;
            if(result.content == "فكك") return
            if(result.content == ask.a){
-msg.channel.send(embed).then(() => {
-        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
-        .then((collected) => {
-                  const sh = new Discord.RichEmbed()
-  .setColor("RANDOM")
-.setDescription('**:tada: , جيد , لقد حصلت على نقطة**')
-.addField('.اكتب نقاطي', 'لرؤية نقاطك' , true)
-.setFooter(message.author.username, message.author.avatarURL)
-message.channel.sendEmbed(sh);
-            let won = collected.first().author;
-            points[won.id].points++;
-          })
-          .catch(collected => {
-            message.channel.send(`**:timer: , انتهئ الوقت , ولم يقم احد بتفكيك الكلمة**`);
-          })
-          fs.writeFile("./points.json", JSON.stringify(points), (err) => {
-    if (err) console.error(err)
-          })
-        })
-    })
+             let embeds = new Discord.RichEmbed()
+             .setTitle(':white_check_mark: اجابة صحيحة')
+             .setAuthor(message.author.username, message.author.avatarURL)
+             .setColor("RANDOM")
+             .setDescription(`**${result.author.username}** الإجابة صحيحة`);
+                message.channel.sendEmbed(embeds);                return;
+           } else {
+ 
+                                  var embedx = new Discord.RichEmbed()
+                .setTitle(':x:خطأ')
+                .setAuthor(message.author.username, message.author.avatarURL)
+                .setColor("RANDOM")
+                .setDescription(`**${result.author.username}** الإجابة خاطئة`);
+                message.channel.sendEmbed(embedx);
+           }
+     });
+  }
+});
+
 
 
 client.login(process.env.BOT_TOKEN);
