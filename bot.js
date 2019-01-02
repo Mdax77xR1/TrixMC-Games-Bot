@@ -986,40 +986,22 @@ var trans =[
 
 
 ];
-client.on('message', message => {
-if (!points[message.author.id]) points[message.author.id] = {
-    points: 0,
-  };
-  if(!message.guild) return;
-    let id = message.author.id,prefix=".";
-    if (spee[id] && (new Date).getTime() - spee[id] < 15*1000) {
-        let r = (new Date).getTime() - spee[id];
-        r = 15*1000 - r;
-    }
-    if ( message.content == prefix+'فكك'){
-       
-        try{
-}catch(e){
- 
-}
- 
-    if(!message.channel.guild) return message.reply('**:no_entry: , هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
- 
- 
-const item = speed[Math.floor(Math.random() * speed.length)];
-const filter = response => {  
-    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
-};
-message.channel.send('**:loudspeaker: , لقد بدأت اللعبة الان !**').then(msg => {
- 
- const embed = new Discord.RichEmbed()
- .setColor("RANDOM")
-     .setAuthor(`:timer: , لديك »15« ثانية فقط لكتابة هذه الكلمة`)
-          .setImage(`${item.type}`)
- .setFooter(`${message.author.tag}`, message.author.avatarURL)
- 
- 
-         
+    if(message.content == prefix+"فكك"){
+        if(UserBlocked.has(message.guild.id)) return message.channel.send("هناك جلسة .")
+        UserBlocked.add(message.guild.id)
+        var ask = trans[Math.floor(Math.random() * trans.length)];
+        let embed = new Discord.RichEmbed()
+        .setTitle('فكك الكلمة بسرعة')
+        .setAuthor(message.author.username, message.author.avatarURL)
+        .setColor("RANDOM")
+        .setDescription(ask.q);
+        message.channel.sendEmbed(embed).then(msg=> msg.delete(20000))
+        const msgs = await message.channel.awaitMessages(msg => msg.author.id !== client.user.id ,{maxMatches:1,time:10000});
+            UserBlocked.delete(message.guild.id)
+        msgs.forEach(result => {
+           if(result.author.id == client.user.id) return;
+           if(result.content == "فكك") return
+           if(result.content == ask.a){
 msg.channel.send(embed).then(() => {
         message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
         .then((collected) => {
@@ -1040,10 +1022,6 @@ message.channel.sendEmbed(sh);
           })
         })
     })
-    spee[id] = (new Date).getTime()
-}
-});
-
 
 
 client.login(process.env.BOT_TOKEN);
