@@ -332,7 +332,7 @@ client.on('message' , message => {;
     })
     .then(console.log("Successful xo game initialization"))
     .catch(console.error);
-    message.channel.send('يتم تحميل... انتظر الريئاكشن :ok:')
+    message.channel.send('يتم تحميل... انتظر الـريـاكشن. :ok:')
     .then(async (new_message) => {
       await new_message.react('1⃣');
       await new_message.react('2⃣');
